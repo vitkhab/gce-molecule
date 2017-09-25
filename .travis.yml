@@ -8,7 +8,9 @@ env:
   GCE_PROJECT_ID='week-3-178314'
 script:
 - pwd
-- molecule --debug create
+- molecule --debug test
 before_install:
+- openssl aes-256-cbc -K $encrypted_c0456b90a4ca_key -iv $encrypted_c0456b90a4ca_iv
+  -in id_rsa_gce.enc -out id_rsa_gce -d
 - openssl aes-256-cbc -K $encrypted_c0456b90a4ca_key -iv $encrypted_c0456b90a4ca_iv
   -in .gce_libcloud_auth.enc -out .gce_libcloud_auth -d

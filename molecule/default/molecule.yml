@@ -3,6 +3,10 @@ dependency:
   name: galaxy
 driver:
   name: gce
+  ssh_connection_options:
+  -  -o ControlPath=~/.ansible/cp/%r@%h-%p
+  -  -o IdentityFile=/home/travis/build/vitkhab/gce-molecule/id_rsa_gce
+  -  -o User=molecule
 lint:
   name: yamllint
 platforms:
